@@ -1,0 +1,32 @@
+<apex:page controller="BookCalendarController" id="pg">
+<apex:form id="frm">
+<apex:pageMessages id="msg"/>
+<apex:outputPanel rendered="{!requestToken}">
+    <!--  this component gathers the session information required by the page -->
+        <c:getAuthSubToken scope="http://www.google.com/calendar/feeds/" />
+        <h2>session token is {!$CurrentPage.parameters.sesstoken}</h2>
+</apex:outputPanel>
+
+<apex:pageBlock title="Block Calendar" id="blk">
+    
+    <apex:pageBlockSection id="section">
+        
+        <apex:outputLabel value="Subject *"/>
+        <apex:inputText id="subject" required="true" value="{!subject}"/>
+        <apex:outputLabel value="Start Date/Time *"/>
+        <apex:inputText required="true" id="strtDateTime"  value="{!startDateTime}" styleClass="cssbody" onfocus="DatePicker.pickDate(true, 'pg:frm:blk:section:strtDateTime', true);"/>
+        <apex:outputLabel value="End Date/Time *"/>
+        <apex:inputText required="true" id="endDateTime"  value="{!endDateTime}" styleClass="cssbody" onfocus="DatePicker.pickDate(true, 'pg:frm:blk:section:endDateTime', true);"/>
+        <!-- <apex:outputLabel value="Duration(In Minutes)"/>
+        <apex:inputText value="{!duration}"/> -->
+        <apex:outputLabel value="Description"/>
+        <apex:inputTextArea value="{!description}" cols="26"/>
+    
+    </apex:pageBlockSection> 
+    
+    <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Block Calendar" action="{!blockCalendar}" rerender="msg"/>
+    </apex:pageBlockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>
