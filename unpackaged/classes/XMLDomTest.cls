@@ -48,6 +48,11 @@ public class XMLDomTest {
         system.debug ( d.getElementsByTagName('book') );
         for(XMLdom.Element ee:d.getElementsByTagName('book')) { system.debug( 'Author is ' + ee.getAttribute('author')); }
         XMLdom.Element ee  = new xmldom.Element(); 
+
+        //2 commented lines
+        //d = new xmldom('<books><book author="Manoj" date="1999" >My Book</book><book author="Ron" >Your Book</book></books>'); 
+        //d.dumpAll();
+
         
         
         string testListBucketResponse = 
