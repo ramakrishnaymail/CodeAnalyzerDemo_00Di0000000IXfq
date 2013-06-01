@@ -2,6 +2,7 @@ public class AuthSubController {
     
     public pagereference exchangeRequestToken() {
         if ( ApexPages.currentPage().getParameters().get('token') != null) { 
+            //Comment. Get token from page parameter
             string sessToken = 
              AuthSubUtil.exchangeForSessionToken( 
                 ApexPages.currentPage().getParameters().get('token'));
