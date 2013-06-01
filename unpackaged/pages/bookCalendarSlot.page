@@ -1,6 +1,7 @@
 <apex:page controller="BookCalendarController" id="pg">
 <apex:form id="frm">
-<apex:pageMessages id="msg"/>
+<apex:pageMessages id="msg">
+</apex:pageMessages>
 <apex:outputPanel rendered="{!requestToken}">
     <!--  this component gathers the session information required by the page -->
         <c:getAuthSubToken scope="http://www.google.com/calendar/feeds/" />
