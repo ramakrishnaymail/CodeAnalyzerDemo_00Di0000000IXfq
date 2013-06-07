@@ -20,7 +20,7 @@ public with sharing class BookCalendarController {
         
         userObj = [select Id,GoogleAuthSessionToken__c from User where Id =:Userinfo.getUserId()];
         String token = ApexPages.currentPage().getParameters().get('sesstoken');
-        
+        system.debug('TOKEN --> ' + token);
         if((userObj.GoogleAuthSessionToken__c==null || userObj.GoogleAuthSessionToken__c=='')){
             if(token!=null){
                 userObj.GoogleAuthSessionToken__c = token;
